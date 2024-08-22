@@ -1,26 +1,27 @@
-# Use the official Node.js image as a base image
+# Use the official Node.js image
 FROM node:18
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Copy package.json and package-lock.json (or yarn.lock) into the container
-COPY package*.json ./
-# Or if you are using Yarn
-# COPY yarn.lock ./
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
 
-# Install dependencies
-RUN npm install
-# Or if you are using Yarn
-# RUN yarn install
+# Install dependencies using Yarn
+RUN yarn install
 
-# Copy the rest of your application code into the container
+# Copy the rest of the application code
 COPY . .
 
-# Expose the port your application runs on
+# Expose the port that the app runs on
 EXPOSE 3000
 
-# Command to run your application
-CMD ["npm", "start"]
-# Or if you are using Yarn
-# CMD ["yarn", "start"]
+# Define environment variables for PostgreSQL
+ENV PGUSER=postgres
+ENV PGHOST=localhost
+ENV PGDATABASE=students
+ENV PGPASSWORD=shamil123
+ENV PGPORT=5432
+
+# Start the application
+CMD ["node", "src/index.js"]
