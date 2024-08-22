@@ -1,6 +1,6 @@
 # Node REST API
 
-This repository contains a REST API project built using Express.js, Node.js, and PostgreSQL. The project is focused on practicing core RDBMS concepts, the fundamentals of creating a RESTful API, and API testing using Postman.
+This repository contains a REST API project built using Express.js, Node.js, and PostgreSQL. The project is focused on practicing core RDBMS concepts, the fundamentals of creating a RESTful API, and API testing using Postman. The project includes CRUD operations.
 
 ## Technologies
 
